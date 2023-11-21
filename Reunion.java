@@ -17,51 +17,63 @@ public class Reunion {
         this.listInv = listInv;
     }
 
-    public String getFecha() {
-        return fecha;
-    }
+    /**
+     * @return
+     */
+    public String getFecha() {return fecha;}
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+    /**
+     * @param fecha
+     */
+    public void setFecha(String fecha) {this.fecha = fecha;}
 
-    public String getHora() {
-        return hora;
-    }
+    /**
+     * @return
+     */
+    public String getHora() {return hora;}
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
+    /**
+     * @param hora
+     */
+    public void setHora(String hora) {this.hora = hora;}
 
-    public String getNomRe() {
-        return nomRe;
-    }
+    /**
+     * @return
+     */
+    public String getNomRe() {return nomRe;}
 
-    public void setNomRe(String nomRe) {
-        this.nomRe = nomRe;
-    }
+    /**
+     * @param nomRe
+     */
+    public void setNomRe(String nomRe) {this.nomRe = nomRe;}
 
-    public String getPin() {
-        return pin;
-    }
+    /**
+     * @return
+     */
+    public String getPin() {return pin;}
 
-    public void setPin(String pin) {
-        this.pin = pin;
-    }
+    /**
+     * @param pin
+     */
+    public void setPin(String pin) {this.pin = pin;}
 
-    public String getDuracion() {
-        return duracion;
-    }
+    /**
+     * @return
+     */
+    public String getDuracion() {return duracion;}
 
-    public void setDuracion(String duracion) {
-        this.duracion = duracion;
-    }
+    /**
+     * @param duracion
+     */
+    public void setDuracion(String duracion) {this.duracion = duracion;}
 
-    public ArrayList<String> getListInv() {
-        return listInv;
-    }
+    /**
+     * @return
+     */
+    public ArrayList<String> getListInv() {return listInv;}
 
-    public void setListInv(ArrayList<String> listInv) {
-        this.listInv = listInv;
-    }
+    /**
+     * @param listInv
+     */
+    public void setListInv(ArrayList<String> listInv) {this.listInv = listInv;}
 }

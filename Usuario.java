@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
-public abstract class Usuario {
+public class Usuario {
     protected String nomUs;
     protected String contra;
     protected boolean tipoPlan;
     protected String estado;
     protected int reservaciones;
-    protected ArrayList<Reunion> ultReuniones;
+    protected ArrayList<String> ultReuniones;
     protected ArrayList<String> ultContactos;
 
-    public Usuario(String nomUs, String contra, boolean tipoPlan, String estado, int reservaciones, ArrayList<Reunion> ultReuniones, ArrayList<String> ultContactos) {
+    public Usuario(String nomUs, String contra, boolean tipoPlan, String estado, int reservaciones, ArrayList<String> ultReuniones, ArrayList<String> ultContactos) {
         this.nomUs = nomUs;
         this.contra = contra;
         this.tipoPlan = tipoPlan;
@@ -19,51 +19,63 @@ public abstract class Usuario {
         this.ultContactos = ultContactos;
     }
 
-    public String getNomUs() {
-        return nomUs;
-    }
+    /**
+     * @return
+     */
+    public String getNomUs() {return nomUs;}
 
-    public void setNomUs(String nomUs) {
-        this.nomUs = nomUs;
-    }
+    /**
+     * @param nomUs
+     */
+    public void setNomUs(String nomUs) {this.nomUs = nomUs;}
 
-    public String getContra() {
-        return contra;
-    }
+    /**
+     * @return
+     */
+    public String getContra() {return contra;}
 
-    public void setContra(String contra) {
-        this.contra = contra;
-    }
+    /**
+     * @param contra
+     */
+    public void setContra(String contra) {this.contra = contra;}
 
-    public boolean getTipoPlan() {
-        return tipoPlan;
-    }
+    /**
+     * @return
+     */
+    public boolean getTipoPlan() {return tipoPlan;}
 
-    public void setTipoPlan(boolean tipoPlan) {
-        this.tipoPlan = tipoPlan;
-    }
+    /**
+     * @param tipoPlan
+     */
+    public void setTipoPlan(boolean tipoPlan) {this.tipoPlan = tipoPlan;}
 
-    public String getEstado() {
-        return estado;
-    }
+    /**
+     * @return
+     */
+    public String getEstado() {return estado;}
 
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
+    /**
+     * @param estado
+     */
+    public void setEstado(String estado) {this.estado = estado;}
 
-    public int getReservaciones() {
-        return reservaciones;
-    }
+    /**
+     * @return
+     */
+    public int getReservaciones() {return reservaciones;}
 
-    public void setReservaciones(int reservaciones) {
-        this.reservaciones = reservaciones;
-    }
+    /**
+     * @param reservaciones
+     */
+    public void setReservaciones(int reservaciones) {this.reservaciones = reservaciones;}
 
-    public ArrayList<Reunion> getUltReuniones() {
-        return ultReuniones;
-    }
+    /**
+     * @return
+     */
+    public ArrayList<String> getUltReuniones() {return ultReuniones;}
 
-    public ArrayList<String> getUltContactos() {
-        return ultContactos;
-    }
+    /**
+     * @return
+     */
+    public ArrayList<String> getUltContactos() {return ultContactos;}
 }
