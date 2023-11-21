@@ -1,21 +1,19 @@
 import java.util.ArrayList;
 
-public class Usuario {
+public abstract class Usuario {
     protected String nomUs;
     protected String contra;
     protected boolean tipoPlan;
     protected String estado;
     protected int reservaciones;
-    protected ArrayList<String> ultReuniones;
     protected ArrayList<String> ultContactos;
 
-    public Usuario(String nomUs, String contra, boolean tipoPlan, String estado, int reservaciones, ArrayList<String> ultReuniones, ArrayList<String> ultContactos) {
+    public Usuario(String nomUs, String contra, boolean tipoPlan, String estado, int reservaciones, ArrayList<String> ultContactos) {
         this.nomUs = nomUs;
         this.contra = contra;
         this.tipoPlan = tipoPlan;
         this.estado = estado;
         this.reservaciones = reservaciones;
-        this.ultReuniones = ultReuniones;
         this.ultContactos = ultContactos;
     }
 
@@ -68,11 +66,6 @@ public class Usuario {
      * @param reservaciones
      */
     public void setReservaciones(int reservaciones) {this.reservaciones = reservaciones;}
-
-    /**
-     * @return
-     */
-    public ArrayList<String> getUltReuniones() {return ultReuniones;}
 
     /**
      * @return

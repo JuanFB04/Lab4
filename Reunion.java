@@ -1,14 +1,16 @@
 import java.util.ArrayList;
 
 public class Reunion {
+    private String dueno;
     private String fecha;
     private String hora;
     private String nomRe;
     private String pin;
-    private String duracion;
+    private int duracion;
     private ArrayList<String> listInv;
 
-    public Reunion(String fecha, String hora, String nomRe, String pin, String duracion, ArrayList<String> listInv) {
+    public Reunion(String dueno, String fecha, String hora, String nomRe, String pin, int duracion, ArrayList<String> listInv) {
+        this.dueno = dueno;
         this.fecha = fecha;
         this.hora = hora;
         this.nomRe = nomRe;
@@ -16,6 +18,16 @@ public class Reunion {
         this.duracion = duracion;
         this.listInv = listInv;
     }
+
+    /**
+     * @return
+     */
+    public String getDueno() {return dueno;}
+
+    /**
+     * @param dueno
+     */
+    public void setDueno(String dueno) {this.dueno=dueno;}
 
     /**
      * @return
@@ -60,12 +72,12 @@ public class Reunion {
     /**
      * @return
      */
-    public String getDuracion() {return duracion;}
+    public int getDuracion() {return duracion;}
 
     /**
      * @param duracion
      */
-    public void setDuracion(String duracion) {this.duracion = duracion;}
+    public void setDuracion(int duracion) {this.duracion = duracion;}
 
     /**
      * @return

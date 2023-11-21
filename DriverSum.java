@@ -30,10 +30,15 @@ public class DriverSum {
             }
         } while (tipoPlanInt<1||tipoPlanInt>2);
         if(tipoPlanInt==2){tipoPlan=true;}
-        ArrayList<String> reuniones = new ArrayList<>();
         ArrayList<String> contactos = new ArrayList<>();
-        Usuario usuario = new Usuario(nomUs, contra, tipoPlan, "disponible", 0, reuniones, contactos);
-        usuarios.add(usuario);
+        if(tipoPlan==false){
+            Base base = new Base(nomUs, contra, tipoPlan, "disponible", 0, contactos);
+            usuarios.add(base);
+        }
+        if(tipoPlan==true){
+            Premium premium = new Premium(nomUs, contra, tipoPlan, "disponible", 0, contactos);
+            usuarios.add(premium);
+        }
     }
 
     /**
@@ -50,24 +55,22 @@ public class DriverSum {
                 boolean tipoPlan = Boolean.parseBoolean(atr[2]);
                 String estado = atr[3];
                 int reservaciones= Integer.parseInt(atr[4]);
-                ArrayList<String> ultReuniones = new ArrayList<>();
-                try{
-                    String[] reuniones=atr[5].split("-");
-                    for(String reunion:reuniones){
-                        ultReuniones.add(reunion);}
-                }catch(Exception e){
-                    ultReuniones = new ArrayList<>();
-                }
                 ArrayList<String> ultContactos = new ArrayList<>();
                 try{
-                    String[] contactos=atr[6].split("-");
+                    String[] contactos=atr[5].split("-");
                     for(String contacto:contactos){
                         ultContactos.add(contacto);}
                 }catch(Exception e){
                     ultContactos = new ArrayList<>();
                 }
-                Usuario usuario = new Usuario(nomUs, contra, tipoPlan, estado, reservaciones, ultReuniones, ultContactos);
-                usuarios.add(usuario);
+                if(tipoPlan==false){
+                    Base base = new Base(nomUs, contra, tipoPlan, "disponible", 0, ultContactos);
+                    usuarios.add(base);
+                }
+                if(tipoPlan==true){
+                    Premium premium = new Premium(nomUs, contra, tipoPlan, "disponible", 0, ultContactos);
+                    usuarios.add(premium);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -87,9 +90,8 @@ public class DriverSum {
                 String tipoPlan=String.valueOf(usuario.getTipoPlan());
                 String estado=usuario.getEstado();
                 String reservaciones=String.valueOf(usuario.getReservaciones());
-                String ultReuniones = String.join("-",usuario.getUltReuniones());
                 String ultContactos = String.join("-",usuario.getUltContactos());
-                String linea = String.join(",",nomUs,contra,tipoPlan,estado,reservaciones,ultReuniones,ultContactos);
+                String linea = String.join(",",nomUs,contra,tipoPlan,estado,reservaciones,ultContactos);
                 writer.write(linea);
                 writer.newLine();
             }
@@ -98,7 +100,7 @@ public class DriverSum {
         }
     }
 
-/**
+    /**
      * @return
      */
     public ArrayList<Reunion> leerReunionesCSV(){
@@ -107,20 +109,21 @@ public class DriverSum {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] atr = linea.split(",");
-                String fecha = atr[0];
-                String hora = atr[1];
-                String nomRe = atr[2];
-                String pin = atr[3];
-                String duración = atr[4];
+                String dueno = atr[0];
+                String fecha = atr[1];
+                String hora = atr[2];
+                String nomRe = atr[3];
+                String pin = atr[4];
+                int duración = Integer.valueOf(atr[5]);
                 ArrayList<String> listInv = new ArrayList<>();
                 try{
-                    String[] invitados=atr[5].split("-");
+                    String[] invitados=atr[6].split("-");
                     for(String invitado:invitados){
                         listInv.add(invitado);}
                 }catch(Exception e){
                     listInv = new ArrayList<>();
                 }
-                Reunion reunion = new Reunion(fecha, hora, nomRe, pin, duración, listInv);
+                Reunion reunion = new Reunion(dueno, fecha, hora, nomRe, pin, duración, listInv);
                 reuniones.add(reunion);
             }
         } catch (IOException e) {
@@ -136,13 +139,14 @@ public class DriverSum {
     public void escribirReunionesCSV(ArrayList<Reunion> reuniones) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileReuniones))) {
             for (Reunion reunion : reuniones) {
+                String dueno = reunion.getDueno();
                 String fecha = reunion.getFecha();
                 String hora = reunion.getHora();
                 String nomRe = reunion.getNomRe();
                 String pin = reunion.getPin();
-                String duracion = reunion.getDuracion();
+                String duracion = String.valueOf(reunion.getDuracion());
                 String listInv = String.join("-",reunion.getListInv());
-                String linea = String.join(",",fecha,hora,nomRe,pin,duracion,listInv);
+                String linea = String.join(",",dueno,fecha,hora,nomRe,pin,duracion,listInv);
                 writer.write(linea);
                 writer.newLine();
             }

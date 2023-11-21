@@ -16,5 +16,5 @@ public interface Membresia {
     /**
      * @param scan
      */
-    public void crearReunion(Scanner scan);
+    public void crearReunion(Scanner scan, ArrayList<Reunion> reunion);
 }

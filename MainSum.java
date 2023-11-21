@@ -6,9 +6,13 @@ public class MainSum{
         Scanner scan = new Scanner(System.in);
         DriverSum drive = new DriverSum();
         ArrayList<Usuario> usuarios = drive.leerUsuariosCSV();
-        //drive.registrarUsuario(scan, usuarios);
-        //drive.escribirUsuariosCSV(usuarios);
         ArrayList<Reunion> reuniones = drive.leerReunionesCSV();
-        
+        Usuario usuario = usuarios.get(0);
+        Base base = (Base) usuario;
+        base.crearReunion(scan, reuniones);
+
+
+        drive.escribirUsuariosCSV(usuarios);
+        drive.escribirReunionesCSV(reuniones);
     }
 }
