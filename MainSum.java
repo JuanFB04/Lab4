@@ -8,7 +8,7 @@ public class MainSum{
         ArrayList<Usuario> usuarios = drive.leerUsuariosCSV();
         //drive.registrarUsuario(scan, usuarios);
         //drive.escribirUsuariosCSV(usuarios);
-
-        System.out.println(usuarios.get(0).getUltReuniones());
+        ArrayList<Reunion> reuniones = drive.leerReunionesCSV();
+        
     }
 }
