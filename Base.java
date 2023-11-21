@@ -8,8 +8,21 @@ public class Base extends Usuario implements Membresia {
     }
 
     @Override
-    public void listarReuniones(ArrayList<String> reuniones, Scanner scan){}
-    public void listarContactos(ArrayList<String> contactos, Scanner scan){}
+    public void listarReuniones(ArrayList<Reunion> reuniones, Scanner scan){
+        System.out.println("Listado de las reuniones pasadas del usuario " + getNomUs() + ":");
+        for (Reunion reunion: reuniones){
+            if (reunion.getDueno().equals(getNomUs())){
+                System.out.println("Fecha: " + reunion.getFecha() + ", Hora: " + reunion.getHora() + ", Nombre: " + reunion.getNomRe() 
+                + ", Duración: " + reunion.getDuracion() + "minutos");
+            }
+        }
+    }
+    public void listarContactos(ArrayList<String> contactos, Scanner scan){
+        System.out.println("Los últimos contactos del usuario " + getNomUs() + " son:");
+        for (String contacto: getUltContactos()){
+            System.out.println(contacto);
+            }
+    }
 
     public void crearReunion(Scanner scan, ArrayList<Reunion> reuniones){
         if(reservaciones<2){

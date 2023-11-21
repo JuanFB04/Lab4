@@ -6,7 +6,7 @@ public interface Membresia {
      * @param reuniones
      * @param scan
      */
-    public void listarReuniones(ArrayList<String> reuniones, Scanner scan);
+    void listarReuniones(ArrayList<Reunion> reuniones, Scanner scan);
     /**
      * @param contactos
      * @param scan
